@@ -10,6 +10,10 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 using System.Drawing;
+using System.Net;
+using System.IO;
+using System.Web.Script.Serialization;
+using System.Web.Services;
 
 
 namespace Cryptography_1
@@ -24,6 +28,40 @@ namespace Cryptography_1
         protected void Page_Load(object sender, EventArgs e)
         {
            
+        }
+
+        public class MyObject
+        {
+            public string success { get; set; }
+            public List<string> ErrorMessage { get; set; }
+        }
+
+        public bool ValidateCaptcha()
+        {
+            bool result = true;
+            string captchaResponse = Request.Form["g-recaptcha-response"];
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create
+                ("https://www.google.com/recaptcha/api/siteverify?secret=apikey &response=" + captchaResponse);
+            try
+            {
+                using (WebResponse wResponse = req.GetResponse())
+                {
+                    using (StreamReader readStream = new StreamReader(wResponse.GetResponseStream()))
+                    {
+                        string jsonResponse = readStream.ReadToEnd();
+                        JavaScriptSerializer js = new JavaScriptSerializer();
+                        MyObject jsonObject = js.Deserialize<MyObject>(jsonResponse);
+
+                        result = Convert.ToBoolean(jsonObject.success);
+                    }
+                }
+                return result;
+            }
+            catch (WebException ex)
+            {
+                throw ex;
+            }
+
         }
 
 

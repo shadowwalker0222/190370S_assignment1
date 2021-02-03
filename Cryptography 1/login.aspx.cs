@@ -35,7 +35,7 @@ namespace Cryptography_1
             bool result = true;
             string captchaResponse = Request.Form["g-recaptcha-response"];
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create
-                ("https://www.google.com/recaptcha/api/siteverify?secret=6Le38zwaAAAAAE4-Xk6AIanHzRKFuVZZ7W6NIOsH &response=" + captchaResponse);
+                ("https://www.google.com/recaptcha/api/siteverify?secret=apikey &response=" + captchaResponse);
             try
             {
                 using (WebResponse wResponse = req.GetResponse())

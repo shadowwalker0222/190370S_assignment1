@@ -4,7 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Registration Form</title>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Le38zwaAAAAAIMMs-5RlkrRFRp0N7yJJb2umx7z"></script>
     <style type="text/css">
         .auto-style1 {
             font-size: xx-large;
