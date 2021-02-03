@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Success Page</title>
     <style type="text/css">
         .auto-style1 {
             font-size: xx-large;

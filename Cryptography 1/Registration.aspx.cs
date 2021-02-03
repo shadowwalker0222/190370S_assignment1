@@ -57,7 +57,7 @@ namespace Cryptography_1
                 }
                 return result;
             }
-            catch (WebException ex)
+            catch(WebException ex)
             {
                 throw ex;
             }
@@ -104,6 +104,7 @@ namespace Cryptography_1
 
         protected void btn_submit_Click(object sender, EventArgs e)
         {
+            
             int scores = checkPassword(tb_pwd.Text);
             string status = "";
             switch (scores)

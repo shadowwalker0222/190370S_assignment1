@@ -37,6 +37,10 @@ namespace Cryptography_1
                 }
 
             }
+            else
+            {
+                Response.Redirect("login.aspx", false);
+            }
 
         }
 
